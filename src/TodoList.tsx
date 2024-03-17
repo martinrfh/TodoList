@@ -3,9 +3,11 @@ import { HStack, Box, Text, Button } from "@chakra-ui/react";
 
 interface Props {
   todoList: Todo[];
+  onCompleteTodo: (id: number) => void;
+  onDeleteTodo: (id: number) => void;
 }
 
-const TodoList = ({ todoList }: Props) => {
+const TodoList = ({ todoList, onCompleteTodo, onDeleteTodo }: Props) => {
   return (
     <Box marginTop={10}>
       {todoList.map((todo) => (
@@ -24,10 +26,16 @@ const TodoList = ({ todoList }: Props) => {
             {todo.title}
           </Text>
           <HStack>
-            <Button colorScheme="teal" marginX={1}>
+            <Button
+              colorScheme="teal"
+              marginX={1}
+              onClick={() => onCompleteTodo(todo.id)}
+            >
               Done
             </Button>
-            <Button colorScheme="red">Delete</Button>
+            <Button colorScheme="red" onClick={() => onDeleteTodo(todo.id)}>
+              Delete
+            </Button>
           </HStack>
         </HStack>
       ))}

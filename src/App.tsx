@@ -5,7 +5,7 @@ import TodoList from "./TodoList";
 export interface Todo {
   id: number;
   title: string;
-  completed: false;
+  completed: boolean;
 }
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -20,7 +20,21 @@ function App() {
           ])
         }
       />
-      <TodoList todoList={todos} />
+      <TodoList
+        todoList={todos}
+        onCompleteTodo={(selectedTodoId) =>
+          setTodos(
+            todos.map((todo) =>
+              todo.id === selectedTodoId
+                ? { ...todo, completed: !todo.completed }
+                : todo
+            )
+          )
+        }
+        onDeleteTodo={(selectedTodoId) =>
+          setTodos(todos.filter((todo) => todo.id !== selectedTodoId))
+        }
+      />
     </>
   );
 }
