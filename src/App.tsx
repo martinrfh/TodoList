@@ -1,9 +1,9 @@
-import "./App.css";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 function App() {
   return (
     <>
-      <p>hello world</p>
+      <ColorModeSwitch />
     </>
   );
 }
