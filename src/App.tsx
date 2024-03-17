@@ -1,9 +1,9 @@
-import ColorModeSwitch from "./ColorModeSwitch";
+import TaskCounter from "./TaskCounter";
 
 function App() {
   return (
     <>
-      <ColorModeSwitch />
+      <TaskCounter />
     </>
   );
 }
