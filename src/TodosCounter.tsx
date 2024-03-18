@@ -4,7 +4,10 @@ import todoContext from "./context/todoContext";
 
 const TodosCounter = () => {
   const { todos } = useContext(todoContext);
-  return <Text fontSize="lg">you have {todos.length} task to do</Text>;
+  const incompleteTodos = todos.filter((todo) => !todo.completed);
+  return (
+    <Text fontSize="lg">you have {incompleteTodos.length} task to do</Text>
+  );
 };
 
 export default TodosCounter;
