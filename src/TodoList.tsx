@@ -15,7 +15,7 @@ const TodoList = ({ todoList, onDeleteTodo, onCompleteTodo }: Props) => {
           key={todo.title}
           padding={3}
           borderRadius={5}
-          backgroundColor={todo.completed ? "teal.700" : "gray.600"}
+          backgroundColor={todo.completed ? "teal.700" : "gray.500"}
           justifyContent="space-between"
           marginBottom={5}
         >
