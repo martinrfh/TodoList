@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react";
 import { useContext } from "react";
-import todoContext from "./context/todoContext";
+import todoContext from "./todos/todoContext";
 
 const TodosCounter = () => {
   const { todos } = useContext(todoContext);

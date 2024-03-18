@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
-import todoContext from "./context/todoContext";
-import TodoReducer from "./Reducer/todoReducer";
+import todoContext from "./todoContext";
+import TodoReducer from "./todoReducer";
 
 interface Props {
   children: React.ReactNode;

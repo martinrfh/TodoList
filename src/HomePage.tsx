@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import todoContext from "./context/todoContext";
-import AddTodoInput from "./AddTodoInput";
-import TodoList from "./TodoList";
+import todoContext from "./todos/todoContext";
+import AddTodoInput from "./todos/AddTodoInput";
+import TodoList from "./todos/TodoList";
 import { Box, Heading } from "@chakra-ui/react";
 
 const HomePage = () => {

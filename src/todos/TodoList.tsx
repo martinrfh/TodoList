@@ -1,5 +1,5 @@
 import { HStack, Box, Text, Button } from "@chakra-ui/react";
-import { Todo } from "./Reducer/todoReducer";
+import { Todo } from "./todoReducer";
 
 interface Props {
   todoList: Todo[];

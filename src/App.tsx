@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import HomePage from "./HomePage";
-import TodoProvider from "./todoProvider";
+import TodoProvider from "./todos/todoProvider";
 
 function App() {
   return (
