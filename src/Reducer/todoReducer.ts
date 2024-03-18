@@ -19,7 +19,7 @@ export interface Todo {
   completed: boolean;
 }
 
-type todoActions = AddTodo | DeleteTodo | CompleteTodo;
+export type todoActions = AddTodo | DeleteTodo | CompleteTodo;
 
 const TodoReducer = (todos: Todo[], action: todoActions): Todo[] => {
   if (action.type === "ADD")
