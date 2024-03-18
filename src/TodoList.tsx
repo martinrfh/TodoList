@@ -1,5 +1,5 @@
-import { Todo } from "./App";
 import { HStack, Box, Text, Button } from "@chakra-ui/react";
+import { Todo } from "./Reducer/todoReducer";
 
 interface Props {
   todoList: Todo[];
@@ -7,7 +7,7 @@ interface Props {
   onDeleteTodo: (id: number) => void;
 }
 
-const TodoList = ({ todoList, onCompleteTodo, onDeleteTodo }: Props) => {
+const TodoList = ({ todoList, onDeleteTodo, onCompleteTodo }: Props) => {
   return (
     <Box marginTop={10}>
       {todoList.map((todo) => (
