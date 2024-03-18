@@ -1,18 +1,14 @@
-import { useReducer } from "react";
-import TodoReducer from "./Reducer/todoReducer";
-import todoContext from "./context/todoContext";
 import Navbar from "./Navbar";
 import HomePage from "./HomePage";
+import TodoProvider from "./todoProvider";
 
 function App() {
-  const [todos, dispatch] = useReducer(TodoReducer, []);
-
   return (
     <>
-      <todoContext.Provider value={{ todos, dispatch }}>
+      <TodoProvider>
         <Navbar />
         <HomePage />
-      </todoContext.Provider>
+      </TodoProvider>
     </>
   );
 }
