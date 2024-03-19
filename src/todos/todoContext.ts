@@ -3,7 +3,10 @@ import { Todo, todoActions } from "./todoReducer";
 import React from "react";
 
 interface todoContextType {
-  todos: Todo[];
+  state: {
+    todos: Todo[];
+    filterByCompleted: Todo[];
+  };
   dispatch: Dispatch<todoActions>;
 }
 

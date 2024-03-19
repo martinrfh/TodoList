@@ -1,3 +1,8 @@
+interface State {
+  todos: Todo[];
+  filterByCompleted: Todo[];
+}
+
 interface AddTodo {
   type: "ADD";
   todo: string;
@@ -21,21 +26,36 @@ export interface Todo {
 
 export type todoActions = AddTodo | DeleteTodo | CompleteTodo;
 
-const TodoReducer = (todos: Todo[], action: todoActions): Todo[] => {
-  if (action.type === "ADD")
-    return [
-      ...todos,
-      { id: todos.length + 1, title: action.todo, completed: false },
-    ];
-
-  if (action.type === "DELETE") {
-    return todos.filter((todo) => todo.id !== action.todoId);
+const TodoReducer = (state: State, action: todoActions) => {
+  const { todos } = state;
+  switch (action.type) {
+    case "ADD":
+      return {
+        ...state,
+        todos: [
+          ...todos,
+          { id: Date.now(), title: action.todo, completed: false },
+        ],
+      };
+    case "COMPLETED":
+      return {
+        ...state,
+        todos: todos.map((todo) =>
+          todo.id === action.todoId
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        ),
+      };
+    case "DELETE":
+      return {
+        ...state,
+        todos: todos.filter((todo) => todo.id !== action.todoId),
+      };
+    // case "SET_FILTER":
+    //   return { ...state, filterByCompleted: action.todoId };
+    default:
+      return state;
   }
-  if (action.type === "COMPLETED")
-    return todos.map((todo) =>
-      todo.id === action.todoId ? { ...todo, completed: !todo.completed } : todo
-    );
-  return todos;
 };
 
 export default TodoReducer;

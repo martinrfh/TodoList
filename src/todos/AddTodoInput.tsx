@@ -11,6 +11,7 @@ const AddTodoInput = ({ onAddTodo }: Props) => {
     event.preventDefault();
     if (ref.current?.value) {
       onAddTodo(ref.current.value);
+      ref.current.value = "";
     }
   };
   return (

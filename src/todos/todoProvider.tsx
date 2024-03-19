@@ -2,14 +2,19 @@ import React, { useReducer } from "react";
 import todoContext from "./todoContext";
 import TodoReducer from "./todoReducer";
 
+const initialState = {
+  todos: [],
+  filterByCompleted: [],
+};
+
 interface Props {
   children: React.ReactNode;
 }
 const TodoProvider = ({ children }: Props) => {
-  const [todos, dispatch] = useReducer(TodoReducer, []);
+  const [state, dispatch] = useReducer(TodoReducer, initialState);
 
   return (
-    <todoContext.Provider value={{ todos, dispatch }}>
+    <todoContext.Provider value={{ state, dispatch }}>
       {children}
     </todoContext.Provider>
   );
