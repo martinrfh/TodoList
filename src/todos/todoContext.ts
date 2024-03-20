@@ -5,7 +5,7 @@ import React from "react";
 interface todoContextType {
   state: {
     todos: Todo[];
-    filterByCompleted: Todo[];
+    sortOrder: string;
   };
   dispatch: Dispatch<todoActions>;
 }

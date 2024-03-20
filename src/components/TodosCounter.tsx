@@ -5,9 +5,7 @@ import todoContext from "../todos/todoContext";
 const TodosCounter = () => {
   const { state } = useContext(todoContext);
   const incompleteTodos = state.todos.filter((todo) => !todo.completed);
-  return (
-    <Text fontSize="lg">you have {incompleteTodos.length} task to do</Text>
-  );
+  return <Text fontSize="lg">pending todos : {incompleteTodos.length} </Text>;
 };
 
 export default TodosCounter;

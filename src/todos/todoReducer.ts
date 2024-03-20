@@ -1,6 +1,6 @@
 interface State {
   todos: Todo[];
-  filterByCompleted: Todo[];
+  sortOrder: string;
 }
 
 interface AddTodo {
@@ -13,9 +13,14 @@ interface DeleteTodo {
   todoId: number;
 }
 
-interface CompleteTodo {
-  type: "COMPLETED";
+interface ToggleTodo {
+  type: "TOGGLE";
   todoId: number;
+}
+
+interface SetFilter {
+  type: "SET_FILTER";
+  orderValue: string;
 }
 
 export interface Todo {
@@ -24,7 +29,7 @@ export interface Todo {
   completed: boolean;
 }
 
-export type todoActions = AddTodo | DeleteTodo | CompleteTodo;
+export type todoActions = AddTodo | DeleteTodo | ToggleTodo | SetFilter;
 
 const TodoReducer = (state: State, action: todoActions) => {
   const { todos } = state;
@@ -37,7 +42,7 @@ const TodoReducer = (state: State, action: todoActions) => {
           { id: Date.now(), title: action.todo, completed: false },
         ],
       };
-    case "COMPLETED":
+    case "TOGGLE":
       return {
         ...state,
         todos: todos.map((todo) =>
@@ -51,8 +56,8 @@ const TodoReducer = (state: State, action: todoActions) => {
         ...state,
         todos: todos.filter((todo) => todo.id !== action.todoId),
       };
-    // case "SET_FILTER":
-    //   return { ...state, filterByCompleted: action.todoId };
+    case "SET_FILTER":
+      return { ...state, sortOrder: action.orderValue };
     default:
       return state;
   }

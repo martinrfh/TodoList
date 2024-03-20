@@ -4,7 +4,7 @@ import TodoReducer from "./todoReducer";
 
 const initialState = {
   todos: [],
-  filterByCompleted: [],
+  sortOrder: "",
 };
 
 interface Props {

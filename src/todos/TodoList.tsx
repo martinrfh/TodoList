@@ -3,11 +3,11 @@ import { Todo } from "./todoReducer";
 
 interface Props {
   todoList: Todo[];
-  onCompleteTodo: (id: number) => void;
+  onToggleTodo: (id: number) => void;
   onDeleteTodo: (id: number) => void;
 }
 
-const TodoList = ({ todoList, onDeleteTodo, onCompleteTodo }: Props) => {
+const TodoList = ({ todoList, onDeleteTodo, onToggleTodo }: Props) => {
   return (
     <Box marginTop={10}>
       {todoList.map((todo) => (
@@ -29,7 +29,7 @@ const TodoList = ({ todoList, onDeleteTodo, onCompleteTodo }: Props) => {
             <Button
               colorScheme="teal"
               marginX={1}
-              onClick={() => onCompleteTodo(todo.id)}
+              onClick={() => onToggleTodo(todo.id)}
             >
               Done
             </Button>
