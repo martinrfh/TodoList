@@ -15,11 +15,13 @@ const TodoList = ({ todoList, onDeleteTodo, onToggleTodo }: Props) => {
           key={todo.title}
           padding={3}
           borderRadius={5}
-          backgroundColor={todo.completed ? "teal.700" : "gray.500"}
+          backgroundColor={todo.completed ? "teal.700" : "gray.600"}
           justifyContent="space-between"
           marginBottom={5}
         >
           <Text
+            textTransform="capitalize"
+            color="white"
             fontWeight="bold"
             textDecoration={todo.completed ? "line-through" : ""}
           >
